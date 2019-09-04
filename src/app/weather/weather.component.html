@@ -1,0 +1,67 @@
+
+<form [formGroup]="WeatherStatus">
+  <div class="form-group row">
+    <mat-form-field class="field">
+      <input matInput placeholder="Location" formControlName="Location">
+      <mat-error *ngIf="!showData">you must enter a value</mat-error>
+    </mat-form-field>
+    <button mat-raised-button class="btn" color="primary" (click)="currentWeather()">search</button>
+  </div>
+</form>
+<div class="row">
+  <div class="center">
+    <div class="card tb" *ngIf= "showData">                                 
+      <div class="card-body">
+        <h4 class="card-title">{{location}}</h4>
+          <p>{{date}}</p>
+          <div class="celsius">
+            {{temp}}<sup>o</sup>F
+          </div>
+          <div class="widgets">
+              <img class="image" src="assets/images/sun.png" alt="sun"/>
+          </div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>MAX</th>
+                <th>MIN</th>
+                <th>DAY</th>
+                <th>NIGHT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{temp_max}}<sup>o</sup>F</td>
+                <td>{{temp_min}}<sup>o</sup>F</td>
+                <td>{{day}}</td>
+                <td>{{night}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th>Day1</th>
+                  <th>Day2</th>
+                  <th>Day3</th>
+                  <th>Day4</th>
+                  <th>Day5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>{{temp}}<sup>o</sup>F</td>
+                  <td>{{temp1}}<sup>o</sup>F</td>
+                  <td>{{temp2}}<sup>o</sup>F</td>
+                  <td>{{temp3}}<sup>o</sup>F</td>
+                  <td>{{temp4}}<sup>o</sup>F</td>
+                </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
